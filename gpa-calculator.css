@@ -1,259 +1,192 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===============================
+   BODY
+================================ */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* More modern font */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f2f7, #c2e9fb);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    /* Improved background styling */
-    background: linear-gradient(135deg, #e0f2f7 0%, #c2e9fb 100%);
+    padding: 15px;
     color: #333;
-    animation: fadeInBackground 1s ease-out forwards;
-    /* Add a subtle animation */
 }
 
-@keyframes fadeInBackground {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
+/* ===============================
+   MAIN CONTAINER
+================================ */
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    /* Stronger shadow */
-    text-align: center;
+    background: #ffffff;
     width: 100%;
-    max-width: 600px;
-    transition: transform 0.3s ease-in-out;
-    /* Add hover effect to container */
+    max-width: 620px;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.container:hover {
-    transform: translateY(-5px);
-}
-
+/* ===============================
+   HEADING
+================================ */
 h1 {
+    text-align: center;
     color: #007bff;
-    /* Brighter primary color */
-    margin-bottom: 25px;
     font-size: 2.2em;
+    margin-bottom: 25px;
     font-weight: 600;
 }
 
+/* ===============================
+   SUBJECT LIST CONTAINER
+================================ */
 #subject-inputs-container {
     margin-bottom: 20px;
-    max-height: 250px;
-    /* Adjusted to show approximately 3 rows + hint of a 4th */
-    overflow-y: auto;
-    padding-right: 10px;
-
-    /* Space for scrollbar */
-    /* Custom Scrollbar Styles for Webkit (Chrome, Safari, Edge) */
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-
-    /* Custom Scrollbar Styles for Firefox */
-    scrollbar-width: thin;
-    /* "auto" or "thin" */
-    scrollbar-color: #888 #f1f1f1;
-    /* thumb color track color */
 }
 
+/* ===============================
+   SUBJECT CARD
+================================ */
 .subject-input-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    /* Slightly increased gap for better separation */
+    background: #f9fbff;
+    border-radius: 14px;
+    padding: 16px;
     margin-bottom: 15px;
-    padding: 12px;
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    background-color: #fcfdff;
-    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #e6eef5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
-.subject-input-row:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-color: #a7d9ff;
-    transform: translateY(-2px);
-    /* Subtle lift effect on hover */
-}
-
+/* ===============================
+   LABEL
+================================ */
 .subject-input-row label {
-    flex-basis: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #666;
 }
 
-.subject-input-row input,
-.subject-credit-hours-select {
-    /* Apply flex properties to both input and select */
-    flex: 1;
-    /* Allow flexible growth, but respect min-width */
-    min-width: 100px;
-    /* Increased min-width for better legibility */
-    padding: 8px;
+/* ===============================
+   INPUTS
+================================ */
+.subject-input-row input {
+    width: 100%;
+    padding: 14px;
+    font-size: 1em;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
-    -moz-appearance: textfield;
 }
 
-.subject-input-row input:focus,
-.subject-credit-hours-select:focus {
-    /* Apply focus style to both */
+.subject-input-row input:focus {
     border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
-.subject-input-row input::-webkit-outer-spin-button,
-.subject-input-row input::-webkit-inner-spin-button {
+/* Remove number arrows */
+.subject-input-row input::-webkit-inner-spin-button,
+.subject-input-row input::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0;
 }
 
-.subject-name-input {
-    flex: 2;
-    /* Give more space to subject name */
-    min-width: 150px !important;
-    /* Ensure it's wider */
+/* ===============================
+   SELECT DROPDOWN WRAPPER (Font Awesome arrow)
+================================ */
+.select-wrapper {
+    position: relative;
+    width: 100%;
 }
 
-/* New styling for credit hour select dropdown */
-.subject-credit-hours-select {
-    flex: 1;
-    /* Allow it to take up available space */
-    min-width: 80px;
-    /* Minimum width for the select */
-    padding: 8px;
+.select-wrapper select {
+    width: 100%;
+    padding: 14px 40px 14px 14px; /* text left, icon right */
+    font-size: 1em;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
+    appearance: none; /* hide default arrow */
     background-color: #f8f8f8;
-    /* Lighter background for dropdown */
-    /* Custom dropdown arrow */
-    appearance: none;
-    /* Remove default browser styling for select */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C118.8L146.2%2C259.6L5.4%2C118.8h281.6z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 12px;
-    padding-right: 30px;
-    /* Make space for the custom arrow */
 }
 
-.subject-credit-hours-select:focus {
+.select-wrapper i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
+    pointer-events: none;
+    font-size: 1em;
+}
+
+.select-wrapper select:focus {
     border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
+/* ===============================
+   REMOVE BUTTON
+================================ */
 .remove-subject-btn {
-    background-color: #dc3545;
-    color: white;
+    background: #dc3545;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    /* Adjust padding for a better look */
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.8em;
     cursor: pointer;
-    font-size: 0.85em;
-    /* Slightly smaller text for consistency */
-    transition: background-color 0.3s ease;
-    margin-left: auto;
-    /* Push to the far right within the flex row */
-    flex-shrink: 0;
-    /* Prevent the button from shrinking */
 }
 
 .remove-subject-btn:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
-    /* Slight grow effect */
+    background: #c82333;
 }
 
+/* ===============================
+   ACTION BUTTONS
+================================ */
 .action-button {
-    background-color: #6c757d;
-    color: white;
-    padding: 12px 20px;
+    padding: 14px 20px;
+    font-size: 1.05em;
+    border-radius: 12px;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 5px;
+    margin: 0;
 }
 
 .action-button.primary {
-    background-color: #007bff;
+    background: #007bff;
+    color: #fff;
 }
 
-/* Style for the new 'Clear All' button */
 .action-button.secondary {
-    background-color: #ffc107;
-    /* A warning/secondary color */
-    color: #343a40;
-    /* Darker text for contrast */
+    background: #ffc107;
+    color: #333;
 }
 
 .action-button:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
-.action-button.primary:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Hover style for the 'Clear All' button */
-.action-button.secondary:hover {
-    background-color: #e0a800;
-    /* Darker yellow on hover */
-    transform: translateY(-2px);
-}
-
-
+/* ===============================
+   RESULTS
+================================ */
 .results {
-    margin-top: 30px;
+    margin-top: 25px;
     padding-top: 20px;
     border-top: 1px solid #eee;
     text-align: center;
-    /* Center results now */
 }
 
 .results p {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin: 10px 0;
-    color: #333;
 }
 
 .results span {
@@ -261,35 +194,116 @@ h1 {
     color: #007bff;
 }
 
-/* Media queries for responsiveness */
+/* ===============================
+   DESKTOP BEHAVIOR
+================================ */
+@media (min-width: 769px) {
+
+    #subject-inputs-container {
+        max-height: 260px;
+        overflow-y: auto;
+        padding: 8px;
+        mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    }
+
+    .subject-input-row {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .subject-input-row input {
+        flex: 2;
+    }
+
+    .select-wrapper {
+        flex: 1;
+    }
+
+    .remove-subject-btn {
+        flex: 0;
+        margin-left: 10px;
+        align-self: center;
+    }
+
+    /* Desktop buttons: all in one line centered */
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .top-buttons,
+    .bottom-button {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .bottom-button {
+        flex-direction: row;
+    }
+
+    .action-button {
+        min-width: 120px;
+    }
+}
+
+/* ===============================
+   MOBILE BEHAVIOR
+================================ */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        margin: 15px;
+
+    #subject-inputs-container {
+        max-height: none;
+        overflow: visible;
+        padding: 0;
     }
 
     h1 {
         font-size: 1.8em;
     }
 
-    .subject-input-row {
-        flex-direction: column;
-        /* Stack items vertically */
-        align-items: stretch;
-        /* Stretch items to fill the width */
-        gap: 8px;
-        /* Reduce gap on smaller screens for compactness */
+    .container {
+        padding: 22px;
     }
 
-    .subject-input-row input,
-    .subject-credit-hours-select,
-    .subject-name-input,
+    .subject-input-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .remove-subject-btn {
+        align-self: flex-end;
+        margin-top: 6px;
+    }
+
+    /* Mobile buttons layout */
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .top-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .bottom-button {
+        display: flex;
+        justify-content: center;
         width: 100%;
-        /* All items take full width */
-        min-width: unset;
-        /* Remove min-width constraints when stacked */
-        margin-left: 0;
-        /* Remove auto margin from remove button when stacked */
+        margin-top: 6px;
+    }
+
+    .action-button {
+        width: auto;
+        min-width: 120px; /* tap-friendly size */
     }
 }
