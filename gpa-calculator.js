@@ -35,17 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. An input for marks (0-100).
         // 3. A <select> (dropdown) for credit hours (1, 2, 3, 4).
         // 4. A button to remove this specific subject row.
-        subjectRow.innerHTML = `
-            <input type="text" class="subject-name-input" placeholder="Subject Name (e.g., Math)" value="Subject ${subjectCounter}">
-            <input type="number" class="subject-marks-input" min="0" max="100" placeholder="Marks (0-100)">
-            <select class="subject-credit-hours-select">
-                <option value="1">1 Credit Hour</option>
-                <option value="2">2 Credit Hours</option>
-                <option value="3" selected>3 Credit Hours</option> <!-- Default to 3 credit hours -->
-                <option value="4">4 Credit Hours</option>
-            </select>
-            <button type="button" class="remove-subject-btn">Remove</button>
-        `;
+       subjectRow.innerHTML = `
+    <input type="text" class="subject-name-input" placeholder="Subject Name (e.g., Math)" value="Subject ${subjectCounter}">
+    <input type="number" class="subject-marks-input" min="0" max="100" placeholder="Marks (0-100)">
+
+    <div class="select-wrapper">
+        <select class="subject-credit-hours-select">
+            <option value="1">1 Credit Hour</option>
+            <option value="2">2 Credit Hours</option>
+            <option value="3" selected>3 Credit Hours</option>
+            <option value="4">4 Credit Hours</option>
+        </select>
+        <i class="fa fa-chevron-down"></i> <!-- Font Awesome icon -->
+    </div>
+
+    <button type="button" class="remove-subject-btn"><i class="fa fa-trash"></i> Remove</button>
+`;
 
         // Append the newly created subject row to the main container.
         subjectInputsContainer.appendChild(subjectRow);
@@ -219,3 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // so the default subject's GPA is shown right away.
     calculateOverallGpa();
 });
+
