@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="gpa-calculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Semester GPA Calculator</h1>
+
+        <div id="subject-inputs-container">
+            <!-- Subject input rows will be added here by JavaScript -->
+        </div>
+
+        <button id="addSubjectBtn" class="action-button">Add Subject</button>
+        <button id="clearAllBtn" class="action-button secondary">Clear All</button> <!-- Added Clear All button -->
+        <button id="calculateBtn" class="action-button primary">Calculate Overall GPA</button>
+
+        <div class="results">
+            <p><strong>Overall GPA:</strong> <span id="overallGpaResult">--</span></p>
+        </div>
+    </div>
+
+    <script src="gpa-calculator.js"></script>
+</body>
+</html>

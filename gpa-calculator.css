@@ -1,0 +1,295 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* More modern font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Improved background styling */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c2e9fb 100%);
+    color: #333;
+    animation: fadeInBackground 1s ease-out forwards;
+    /* Add a subtle animation */
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow */
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    transition: transform 0.3s ease-in-out;
+    /* Add hover effect to container */
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: #007bff;
+    /* Brighter primary color */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+#subject-inputs-container {
+    margin-bottom: 20px;
+    max-height: 250px;
+    /* Adjusted to show approximately 3 rows + hint of a 4th */
+    overflow-y: auto;
+    padding-right: 10px;
+
+    /* Space for scrollbar */
+    /* Custom Scrollbar Styles for Webkit (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Custom Scrollbar Styles for Firefox */
+    scrollbar-width: thin;
+    /* "auto" or "thin" */
+    scrollbar-color: #888 #f1f1f1;
+    /* thumb color track color */
+}
+
+.subject-input-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    /* Slightly increased gap for better separation */
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #fcfdff;
+    transition: all 0.2s ease-in-out;
+}
+
+.subject-input-row:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-color: #a7d9ff;
+    transform: translateY(-2px);
+    /* Subtle lift effect on hover */
+}
+
+.subject-input-row label {
+    flex-basis: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.subject-input-row input,
+.subject-credit-hours-select {
+    /* Apply flex properties to both input and select */
+    flex: 1;
+    /* Allow flexible growth, but respect min-width */
+    min-width: 100px;
+    /* Increased min-width for better legibility */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    -moz-appearance: textfield;
+}
+
+.subject-input-row input:focus,
+.subject-credit-hours-select:focus {
+    /* Apply focus style to both */
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.subject-input-row input::-webkit-outer-spin-button,
+.subject-input-row input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.subject-name-input {
+    flex: 2;
+    /* Give more space to subject name */
+    min-width: 150px !important;
+    /* Ensure it's wider */
+}
+
+/* New styling for credit hour select dropdown */
+.subject-credit-hours-select {
+    flex: 1;
+    /* Allow it to take up available space */
+    min-width: 80px;
+    /* Minimum width for the select */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    background-color: #f8f8f8;
+    /* Lighter background for dropdown */
+    /* Custom dropdown arrow */
+    appearance: none;
+    /* Remove default browser styling for select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C118.8L146.2%2C259.6L5.4%2C118.8h281.6z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding-right: 30px;
+    /* Make space for the custom arrow */
+}
+
+.subject-credit-hours-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.remove-subject-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    /* Adjust padding for a better look */
+    cursor: pointer;
+    font-size: 0.85em;
+    /* Slightly smaller text for consistency */
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    /* Push to the far right within the flex row */
+    flex-shrink: 0;
+    /* Prevent the button from shrinking */
+}
+
+.remove-subject-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+    /* Slight grow effect */
+}
+
+.action-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+}
+
+.action-button.primary {
+    background-color: #007bff;
+}
+
+/* Style for the new 'Clear All' button */
+.action-button.secondary {
+    background-color: #ffc107;
+    /* A warning/secondary color */
+    color: #343a40;
+    /* Darker text for contrast */
+}
+
+.action-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.action-button.primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Hover style for the 'Clear All' button */
+.action-button.secondary:hover {
+    background-color: #e0a800;
+    /* Darker yellow on hover */
+    transform: translateY(-2px);
+}
+
+
+.results {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    /* Center results now */
+}
+
+.results p {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.results span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .subject-input-row {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: stretch;
+        /* Stretch items to fill the width */
+        gap: 8px;
+        /* Reduce gap on smaller screens for compactness */
+    }
+
+    .subject-input-row input,
+    .subject-credit-hours-select,
+    .subject-name-input,
+    .remove-subject-btn {
+        width: 100%;
+        /* All items take full width */
+        min-width: unset;
+        /* Remove min-width constraints when stacked */
+        margin-left: 0;
+        /* Remove auto margin from remove button when stacked */
+    }
+}
