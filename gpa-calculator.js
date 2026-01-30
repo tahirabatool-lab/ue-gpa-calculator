@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <i class="fa fa-chevron-down"></i> <!-- Font Awesome icon -->
     </div>
 
-    <button type="button" class="remove-subject-btn"><i class="fa fa-trash"></i> Remove</button>
+    <button type="button" class="remove-subject-btn">Remove  <i class="fa fa-trash"></i></button>
 `;
 
         // Append the newly created subject row to the main container.
@@ -224,4 +224,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // so the default subject's GPA is shown right away.
     calculateOverallGpa();
 });
+
 
